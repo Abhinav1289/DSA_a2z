@@ -1,0 +1,36 @@
+#include <bits/stdc++.h> 
+vector<int> rotateArray(vector<int>& arr, int n) {
+    // Write your code here.
+    int t=arr[0];
+    for(int i=0;i<n-1;i++){
+        arr[i]=arr[i+1];
+    }
+    arr[n-1]=t;
+    return arr;
+}
+
+
+
+
+
+class Solution {
+public:
+void reverseArray(vector<int>& arr, int start, int end) {
+    while (start < end) {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+}
+    void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        if (k % n == 0) {
+        return;
+    }
+
+    k = k % n;
+    reverseArray(nums, 0, n - k - 1);
+    reverseArray(nums, n - k, n - 1);
+    reverseArray(nums, 0, n - 1);
+    }
+};
